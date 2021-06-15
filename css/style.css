@@ -20,5 +20,13 @@ h1 {
     height: 10px;
     width: 10px;
     border: black solid 1px;
-    margin: -1px
+    box-sizing: border-box;
+}
+
+.alive {
+    background-color: black;
+}
+
+.cell:hover {
+    background-color: grey;
 }
