@@ -12,6 +12,7 @@ h1 {
     background-color: white;
     width: 1000px;
     height: 1000px;
+    margin: 0 auto;
     /* border:blue;
     border-style: solid; */
 }
@@ -25,6 +26,9 @@ h1 {
 
 .alive {
     background-color: black;
+}
+.dead {
+    background-color: white;
 }
 
 .cell:hover {
