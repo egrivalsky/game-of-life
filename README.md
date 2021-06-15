@@ -1,0 +1,1 @@
+This is an attempt to recreate John Conway's game of life in Javascript.
