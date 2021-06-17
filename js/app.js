@@ -73,7 +73,7 @@ function checkAliveCells() {
 function nextGeneration() {
     for (let n = 1; n <= (width * height) / cellSize; n++) {
         let thisCell = document.getElementById(n);
-        thisCell.classList.add('test')
+        thisCell.classList.add('test ')
         if (thisCell.classList.contains('alive')){
             checkAliveCells();
         } else {
