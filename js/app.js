@@ -31,18 +31,53 @@ for (let n = 1; n <= (width * height) / cellSize; n++) {
     
 }
 
+function checkAliveCells() {
+    //for cells on the top row
+    alert('button worked')
+    if (n <= width / Math.sqrt(cellSize)) {
+        let aliveNeighbors = 0;
+        let neighbors = [
+            document.getElementById(n-1),
+            document.getElementById(n+1),
+            document.getElementById(n + width - 1),
+            document.getElementById(n + width),
+            document.getElementById(n + width + 1)
+        ]
+        for (let i = 0; i < neighbors.length; i++) {
+            // if (neighbors[i].classList.contains('alive')) {
+            //     aliveNeighbors++;
+            // }
+            neighbors[i].classList.add('test')
+        }    
+        if (aliveNeighbors < 2) {
+            thisCell.classList.remove('alive');
+        }
+
+    }
+
+    //for cells on the bottom row 
+    // if (n > (width * height/cellSize) - cellSize) {
+    //     thisCell.classList.add('alive')
+    // }
+    // //for cells on left column
+    // if (n % (width/Math.sqrt(cellSize)) ===1) {
+    //     thisCell.classList.add('alive');
+    // }
+    // //for cells on the right column
+    // if (n % (width/Math.sqrt(cellSize)) === 0) {
+    //     thisCell.classList.add('alive');
+    // }
+}
 
 // next generation
 function nextGeneration() {
     for (let n = 1; n <= (width * height) / cellSize; n++) {
         let thisCell = document.getElementById(n);
-        //for cells on the top row
-        // if (n <= width / Math.sqrt(cellSize)) {
-        //     thisCell.classList.add('alive')
-        // }
-        //for cells on the bottom row 
-        if (n > (width * height/cellSize) - cellSize) {
-            thisCell.classList.add('alive')
+        thisCell.classList.add('test')
+        if (thisCell.classList.contains('alive')){
+            checkAliveCells();
+        } else {
+            checkDeadCells()
         }
     }
 }
