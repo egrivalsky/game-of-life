@@ -126,18 +126,22 @@ function checkAliveCells(n) {
 
     //adds up total neighbors if thisCell
     for (let i = 0; i < neighbors.length; i++) {
-        // if (neighbors[i].classList.contains('alive')) {
-        //     aliveNeighbors++;
-        // }
-        neighbors[i].classList.add('test');
+        if (neighbors[i].classList.contains('alive')) {
+            aliveNeighbors++;
+        }
+        // neighbors[i].classList.add('test');
     }
-    
-    if (aliveNeighbors < 2) {
+    //Conway's rules for alive cells
+    // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+    // Any live cell with two or three live neighbours lives on to the next generation.
+    // Any live cell with more than three live neighbours dies, as if by overpopulation.
+    if (aliveNeighbors < 2 || aliveNeighbors > 3) {
         thisCell.classList.add('kill')
     }
-    // if (aliveNeighbors < 2) {
-    //     thisCell.classList.remove('alive');
-    // }
+    // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    if (thisCell.classList.contains('alive') === false && aliveNeighbors === 3) {
+        thisCell.classList.add('create')
+    }
 }
 
 function checkDeadCells() {
@@ -149,12 +153,13 @@ function nextGeneration() {
     //loop to tag cells that will change
     for (let n = 1; n <= (width * height) / cellSize; n++) {
         let thisCell = document.getElementById(n);
-        // thisCell.classList.add('test')
-        if (thisCell.classList.contains('alive')){
-            checkAliveCells(n);
-        } else {
-            checkDeadCells()
-        }
+        checkAliveCells(n)
+        // // thisCell.classList.add('test')
+        // if (thisCell.classList.contains('alive')){
+        //     checkAliveCells(n);
+        // } else {
+        //     checkDeadCells()
+        // }
     }
     //loop again to actually makes the changes
     for (let n = 1; n <= (width * height) / cellSize; n++) {
@@ -163,9 +168,27 @@ function nextGeneration() {
             thisCell.classList.remove('alive');
             thisCell.classList.remove('kill');
         }
+        if (thisCell.classList.contains('create')) {
+            thisCell.classList.add('alive');
+            thisCell.classList.remove('create');
+        }
+    }
+}
+
+function clearBoard() {
+    for (let n = 1; n <= (width * height) / cellSize; n++) {
+        let thisCell = document.getElementById(n);
+        if (thisCell.classList.contains('alive')) {
+            thisCell.classList.remove('alive');
+        }
+        if (thisCell.classList.contains('kill')) {
+            thisCell.classList.remove('kill');
+        }
     }
 }
 
 let generationButton = document.getElementById('next-generation')
 let startOverButton = document.getElementById('start-over')
 generationButton.addEventListener('click', nextGeneration);
+startOverButton.addEventListener('click', clearBoard);
+
