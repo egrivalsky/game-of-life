@@ -179,7 +179,7 @@ function nextGeneration() {
 }
 
 function runAuto() {
-        auto = setInterval(nextGeneration, 1000);
+        auto = setInterval(nextGeneration, 500);
 }
 
 function stopAuto() {
@@ -197,6 +197,8 @@ function clearBoard() {
         }
     }
     generationNumber = 0;
+    generationDisplay.innerText = 'Generation: ' + generationNumber;
+    stopAuto();
 }
 
 let generationButton = document.getElementById('next-generation');
