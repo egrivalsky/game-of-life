@@ -71,6 +71,7 @@ function checkAliveCells(n) {
         ]
 
     } else
+    //CELLS ON EDGE ROWS (corners already ruled out by above if statements)
     //for cells on the top row
     if (n <= width / Math.sqrt(cellSize)) {
             neighbors = [
@@ -101,7 +102,7 @@ function checkAliveCells(n) {
             document.getElementById(n + (width/Math.sqrt(cellSize)) + 1),
         ]
     } else 
-    // //for cells on the right column
+    //for cells on the right column
     if (n % (width/Math.sqrt(cellSize)) === 0) {
         neighbors = [
             document.getElementById(n - 1),
@@ -110,7 +111,18 @@ function checkAliveCells(n) {
             document.getElementById(n - (width/Math.sqrt(cellSize)) - 1),
             document.getElementById(n + (width/Math.sqrt(cellSize)) - 1),
         ]
-    }
+    } else 
+    // FOR ALL OTHER CELLS
+        neighbors = [
+            document.getElementById(n-1),
+            document.getElementById(n+1),
+            document.getElementById(n + (width/Math.sqrt(cellSize))),
+            document.getElementById(n - (width/Math.sqrt(cellSize))),
+            document.getElementById(n + (width/Math.sqrt(cellSize)) + 1),
+            document.getElementById(n + (width/Math.sqrt(cellSize)) - 1),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) + 1),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) - 1),
+    ]
 
     //adds up total neighbors if thisCell
     for (let i = 0; i < neighbors.length; i++) {
