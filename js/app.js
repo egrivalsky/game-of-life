@@ -2,6 +2,8 @@ let board = document.getElementById('board')
 let width = 1000
 let height = 1000
 let cellSize = 100
+let generationDisplay = document.getElementById('generation-counter');
+let generationNumber = 0;
 
 function toggleCell(e) {
 
@@ -173,6 +175,8 @@ function nextGeneration() {
             thisCell.classList.remove('create');
         }
     }
+    generationNumber++;
+    generationDisplay.innerText = 'Generation: ' + generationNumber;
 }
 
 function clearBoard() {
@@ -185,10 +189,11 @@ function clearBoard() {
             thisCell.classList.remove('kill');
         }
     }
+    generationNumber = 0;
 }
 
-let generationButton = document.getElementById('next-generation')
-let startOverButton = document.getElementById('start-over')
+let generationButton = document.getElementById('next-generation');
+let startOverButton = document.getElementById('start-over');
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
 
