@@ -179,6 +179,11 @@ function nextGeneration() {
     generationDisplay.innerText = 'Generation: ' + generationNumber;
 }
 
+function auto() {
+    // alert('auto hit');
+    setInterval(nextGeneration, 1000);
+}
+
 function clearBoard() {
     for (let n = 1; n <= (width * height) / cellSize; n++) {
         let thisCell = document.getElementById(n);
@@ -194,6 +199,8 @@ function clearBoard() {
 
 let generationButton = document.getElementById('next-generation');
 let startOverButton = document.getElementById('start-over');
+let autoButton = document.getElementById('auto');
+autoButton.addEventListener('click', auto);
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
 
