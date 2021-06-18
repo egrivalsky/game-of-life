@@ -35,6 +35,8 @@ function checkAliveCells(n) {
     let neighbors = [];
     let aliveNeighbors = 0;
 
+    //DEFINING NEIGHBORS since board is not infinite
+
     //for cells on the top row
     if (n <= width / Math.sqrt(cellSize)) {
             neighbors = [
@@ -45,7 +47,40 @@ function checkAliveCells(n) {
             document.getElementById(n + (width/Math.sqrt(cellSize)) + 1)
         ]
     }
+    //for cells on the bottom row 
+    if (n > (width * height/cellSize) - cellSize) {
+        neighbors = [
+            document.getElementById(n-1),
+            document.getElementById(n+1),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) - 1),
+            document.getElementById(n - (width/Math.sqrt(cellSize))),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) + 1)
+        ]
+    }
 
+
+    // //for cells on left column
+    if (n % (width/Math.sqrt(cellSize)) === 1) {
+        neighbors = [
+            document.getElementById(n + 1),
+            document.getElementById(n - (width/Math.sqrt(cellSize))),
+            document.getElementById(n + (width/Math.sqrt(cellSize))),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) + 1),
+            document.getElementById(n + (width/Math.sqrt(cellSize)) + 1),
+        ]
+    
+
+    // //for cells on the right column
+    if (n % (width/Math.sqrt(cellSize)) === 0) {
+        neighbors = [
+            document.getElementById(n - 1),
+            document.getElementById(n - (width/Math.sqrt(cellSize))),
+            document.getElementById(n + (width/Math.sqrt(cellSize))),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) - 1),
+            document.getElementById(n + (width/Math.sqrt(cellSize)) - 1),
+        ]
+    }
+    //adds up total neighbors if thisCell
     for (let i = 0; i < neighbors.length; i++) {
         if (neighbors[i].classList.contains('alive')) {
             aliveNeighbors++;
@@ -59,21 +94,8 @@ function checkAliveCells(n) {
     //     thisCell.classList.remove('alive');
     // }
 
-
-    //for cells on the bottom row 
-    // if (n > (width * height/cellSize) - cellSize) {
-    //     thisCell.classList.add('alive')
-    // }
-    // //for cells on left column
-    // if (n % (width/Math.sqrt(cellSize)) ===1) {
-    //     thisCell.classList.add('alive');
-    // }
-    // //for cells on the right column
-    // if (n % (width/Math.sqrt(cellSize)) === 0) {
-    //     thisCell.classList.add('alive');
-    // }
+    }
 }
-
 function checkDeadCells() {
     
 }
