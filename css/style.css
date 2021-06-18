@@ -27,9 +27,9 @@ h1 {
 .alive {
     background-color: black;
 }
-.dead {
+/* .dead {
     background-color: white;
-}
+} */
 .test {
     background-color: blue;
 }
