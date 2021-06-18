@@ -4,6 +4,7 @@ let height = 1000
 let cellSize = 100
 let generationDisplay = document.getElementById('generation-counter');
 let generationNumber = 0;
+let auto;
 
 function toggleCell(e) {
 
@@ -27,10 +28,8 @@ window.onload = function makeBoard() {
         cell.classList.add('cell');
         cell.addEventListener('click', toggleCell)
         board.appendChild(cell)
-        // console.log(n)
-    }
-        
-    }
+    }   
+}
 
 function checkAliveCells(n) {
     let thisCell = document.getElementById(n);
@@ -179,9 +178,12 @@ function nextGeneration() {
     generationDisplay.innerText = 'Generation: ' + generationNumber;
 }
 
-function auto() {
-    // alert('auto hit');
-    setInterval(nextGeneration, 1000);
+function runAuto() {
+        auto = setInterval(nextGeneration, 1000);
+}
+
+function stopAuto() {
+    clearInterval(auto)
 }
 
 function clearBoard() {
@@ -200,7 +202,9 @@ function clearBoard() {
 let generationButton = document.getElementById('next-generation');
 let startOverButton = document.getElementById('start-over');
 let autoButton = document.getElementById('auto');
-autoButton.addEventListener('click', auto);
+let stopButton = document.getElementById('stop');
+autoButton.addEventListener('click', runAuto);
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
+stopButton.addEventListener('click', stopAuto)
 
