@@ -36,7 +36,41 @@ function checkAliveCells(n) {
     let aliveNeighbors = 0;
 
     //DEFINING NEIGHBORS since board is not infinite
+    //FOR CORNER CELLS
+    //top left
+    if (n === 1) {
+        neighbors = [
+            document.getElementById(n+1),
+            document.getElementById(n + (width/Math.sqrt(cellSize))),
+            document.getElementById(n + (width/Math.sqrt(cellSize)) + 1),
 
+        ]
+    } else 
+    //top right
+    if (n === (width/Math.sqrt(cellSize))) {
+        neighbors = [
+            document.getElementById(n-1),
+            document.getElementById(n + (width/Math.sqrt(cellSize))),
+            document.getElementById(n + (width/Math.sqrt(cellSize)) - 1),
+        ]
+    } else
+    //bottom left 
+    if (n === (width/Math.sqrt(cellSize) * height/Math.sqrt(cellSize)) - (width/Math.sqrt(cellSize) - 1)) {
+        neighbors = [
+            document.getElementById(n+1),
+            document.getElementById(n - (width/Math.sqrt(cellSize))),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) + 1),
+        ]
+    } else
+    //bottom right
+    if (n === width/Math.sqrt(cellSize) * height/Math.sqrt(cellSize)) {
+        neighbors = [
+            document.getElementById(n-1),
+            document.getElementById(n - (width/Math.sqrt(cellSize))),
+            document.getElementById(n - (width/Math.sqrt(cellSize)) - 1),
+        ]
+
+    } else
     //for cells on the top row
     if (n <= width / Math.sqrt(cellSize)) {
             neighbors = [
@@ -46,7 +80,7 @@ function checkAliveCells(n) {
             document.getElementById(n + (width/Math.sqrt(cellSize))),
             document.getElementById(n + (width/Math.sqrt(cellSize)) + 1)
         ]
-    }
+    } else
     //for cells on the bottom row 
     if (n > (width * height/cellSize) - cellSize) {
         neighbors = [
@@ -56,9 +90,7 @@ function checkAliveCells(n) {
             document.getElementById(n - (width/Math.sqrt(cellSize))),
             document.getElementById(n - (width/Math.sqrt(cellSize)) + 1)
         ]
-    }
-
-
+    } else
     // //for cells on left column
     if (n % (width/Math.sqrt(cellSize)) === 1) {
         neighbors = [
@@ -68,8 +100,7 @@ function checkAliveCells(n) {
             document.getElementById(n - (width/Math.sqrt(cellSize)) + 1),
             document.getElementById(n + (width/Math.sqrt(cellSize)) + 1),
         ]
-    
-
+    } else 
     // //for cells on the right column
     if (n % (width/Math.sqrt(cellSize)) === 0) {
         neighbors = [
@@ -80,11 +111,13 @@ function checkAliveCells(n) {
             document.getElementById(n + (width/Math.sqrt(cellSize)) - 1),
         ]
     }
+
     //adds up total neighbors if thisCell
     for (let i = 0; i < neighbors.length; i++) {
-        if (neighbors[i].classList.contains('alive')) {
-            aliveNeighbors++;
-        }
+        // if (neighbors[i].classList.contains('alive')) {
+        //     aliveNeighbors++;
+        // }
+        neighbors[i].classList.add('test');
     }
     
     if (aliveNeighbors < 2) {
@@ -93,9 +126,8 @@ function checkAliveCells(n) {
     // if (aliveNeighbors < 2) {
     //     thisCell.classList.remove('alive');
     // }
-
-    }
 }
+
 function checkDeadCells() {
     
 }
