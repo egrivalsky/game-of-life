@@ -202,12 +202,15 @@ function clearBoard() {
 }
 
 function demoOne() {
-    let demoOneCells = [1051, 1150, 1152, 1249, 1251, 1253, 1348, 1350, 1352, 1354, 1447, 1449, 1451, 1453, 1455]
+    let demoOneCells = ["1551", "1650", "1652", "1749", "1751", "1753", "1848", "1850", "1852", "1854", "1947", "1949", "1951", "1953", "1955"];
 
-    for (let n = 0; n < demoOnceCells.length; n++) {
-        demoOneCells[n].classList.add('alive')
+    for (let n = 0; n < demoOneCells.length; n++) {
+        let thisDemoCell = document.getElementById(demoOneCells[n])
+        thisDemoCell.classList.add('alive')
+    
     }
 }
+
 
 
 let generationButton = document.getElementById('next-generation');
