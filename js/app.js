@@ -201,12 +201,23 @@ function clearBoard() {
     stopAuto();
 }
 
+function demoOne() {
+    let demoOneCells = [1051, 1150, 1152, 1249, 1251, 1253, 1348, 1350, 1352, 1354, 1447, 1449, 1451, 1453, 1455]
+
+    for (let n = 0; n < demoOnceCells.length; n++) {
+        demoOneCells[n].classList.add('alive')
+    }
+}
+
+
 let generationButton = document.getElementById('next-generation');
 let startOverButton = document.getElementById('start-over');
 let autoButton = document.getElementById('auto');
 let stopButton = document.getElementById('stop');
+let demoOneButton = document.getElementById('demo-one');
 autoButton.addEventListener('click', runAuto);
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
 stopButton.addEventListener('click', stopAuto)
+demoOneButton.addEventListener('click', demoOne)
 
