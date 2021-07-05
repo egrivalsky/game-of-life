@@ -12,7 +12,7 @@
     <span id="show">What's this all about?</span>
     <br>
     <div id="explainer" class="hidden">
-        <h3 id="hide" style="color:blue">HIDE ME</h3>
+        <h3 id="hide" style="color:blue">Click to hide</h3>
         <p>The game of live as described by John Conway in 1970 can be summarized by three rules:
             <blockquote>
                 <ol>
@@ -30,14 +30,20 @@
     <br>
     <button id="stop">PAUSE</button>
     <button id="start-over">Reset</button>
-    <p style="color:whitesmoke">Need help setting up? Click the demo and the click "Run On Auto":</p>
-    <button id="demo-one">DEMO 1</button><p>Symmetry</p>
-    <button id="demo-two">DEMO 2</button><p>Glider</p>
-    <button id="demo-three">DEMO 3</button><p>Life... Finds a way</p>
     <h2 style="color:whitesmoke" id="generation-counter">Generation: 0</h2>
+    <p style="color:whitesmoke">Click any cell to change it. <br> Need help? Click the demo and the click "Run On Auto":</p>
+    <div id="demos">
+        <div class="demo-button"><button id="demo-one">DEMO 1</button><h2>Symmetry</h2></div>
+        <div class="demo-button"><button id="demo-two">DEMO 2</button><h2>Glider</h2></div>
+        <div class="demo-button"><button id="demo-three">DEMO 3</button><h2>Life... finds a way</h2></div>
+    </div>
     <div id="board">
 
     </div>
+<span id="link-home">
+   Erik Grivalsky 2021 - <a href="www.erikgrivalsky.com">Check me out</a>
+</span>
+
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -245,8 +245,11 @@ let startOverButton = document.getElementById('start-over');
 let autoButton = document.getElementById('auto');
 let stopButton = document.getElementById('stop');
 let demoOneButton = document.getElementById('demo-one');
+let demoTwoButton = document.getElementById('demo-two');
+let demoThreeButton = document.getElementById('demo-three');
 let show = document.getElementById('show')
-let hide = document.getElementById('hide');
+let hide = document.getElementById('explainer');
+
 autoButton.addEventListener('click', runAuto);
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
