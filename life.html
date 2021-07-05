@@ -9,8 +9,22 @@
 </head>
 <body>
     <h1>Conway's Game of Life</h1>
+    <span>What's this all about?</span>
+    <div id="explainer">
+        <p>The game of live as described by John Conway in 1970 can be summarized by three rules:
+            <blockquote>
+                <ol>
+                    <li>Any live cell with two or three live neighbours survives.</li>
+                    <li>Any dead cell with three live neighbours becomes a live cell.</li>
+                    <li>All other live cells die in the next generation. Similarly, all other dead cells stay dead.</li>
+            </blockquote>
+        This board is not infinite and there for not a perfect GoL board, but it's fun to play with and it was fun to make. 
+        More information about <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">John Conway's Game of Life</a> is on Wikipedia.
+        </p>
+    </div>
     <button id="next-generation">Next Generation</button>
     <button id="auto">Run On Auto</button>
+    <br>
     <button id="start-over">Start Over</button>
     <button id="stop">PAUSE</button>
     <h2 style="color:whitesmoke" id="generation-counter">Generation: 0</h2>
