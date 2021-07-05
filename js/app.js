@@ -179,7 +179,7 @@ function nextGeneration() {
 }
 
 function runAuto() {
-        auto = setInterval(nextGeneration, 500);
+        auto = setInterval(nextGeneration, 250);
 }
 
 function stopAuto() {
@@ -203,7 +203,27 @@ function clearBoard() {
 
 function demoOne() {
     let demoOneCells = ["1551", "1650", "1652", "1749", "1751", "1753", "1848", "1850", "1852", "1854", "1947", "1949", "1951", "1953", "1955"];
+    clearBoard()
+    for (let n = 0; n < demoOneCells.length; n++) {
+        let thisDemoCell = document.getElementById(demoOneCells[n])
+        thisDemoCell.classList.add('alive')
+    
+    }
+}
 
+function demoTwo() {
+    let demoOneCells = ["1551", "1651", "1751", "1750", "1649"];
+    clearBoard()
+    for (let n = 0; n < demoOneCells.length; n++) {
+        let thisDemoCell = document.getElementById(demoOneCells[n])
+        thisDemoCell.classList.add('alive')
+    
+    }
+}
+
+function demoThree() {
+    let demoOneCells = ["1551", "1651", "1751", "1851", "1850", "1849", "1748"];
+    clearBoard()
     for (let n = 0; n < demoOneCells.length; n++) {
         let thisDemoCell = document.getElementById(demoOneCells[n])
         thisDemoCell.classList.add('alive')
@@ -225,13 +245,15 @@ let startOverButton = document.getElementById('start-over');
 let autoButton = document.getElementById('auto');
 let stopButton = document.getElementById('stop');
 let demoOneButton = document.getElementById('demo-one');
-let explainer = document.getAnimations('explainer')
+let show = document.getElementById('show')
 let hide = document.getElementById('hide');
 autoButton.addEventListener('click', runAuto);
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
 stopButton.addEventListener('click', stopAuto);
 demoOneButton.addEventListener('click', demoOne);
-explainer.addeventListener('click', showExplainer);
+demoTwoButton.addEventListener('click', demoTwo);
+demoThreeButton.addEventListener('click', demoThree);
+show.addEventListener('click', showExplainer);
 hide.addEventListener('click', hideExplainer)
 
