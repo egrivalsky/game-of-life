@@ -211,6 +211,13 @@ function demoOne() {
     }
 }
 
+function showExplainer() {
+    explainer.classList.remove('hidden')
+}
+
+function hideExplainer () {
+    explainer.classList.add('hidden')
+}
 
 
 let generationButton = document.getElementById('next-generation');
@@ -218,9 +225,13 @@ let startOverButton = document.getElementById('start-over');
 let autoButton = document.getElementById('auto');
 let stopButton = document.getElementById('stop');
 let demoOneButton = document.getElementById('demo-one');
+let explainer = document.getAnimations('explainer')
+let hide = document.getElementById('hide');
 autoButton.addEventListener('click', runAuto);
 generationButton.addEventListener('click', nextGeneration);
 startOverButton.addEventListener('click', clearBoard);
-stopButton.addEventListener('click', stopAuto)
-demoOneButton.addEventListener('click', demoOne)
+stopButton.addEventListener('click', stopAuto);
+demoOneButton.addEventListener('click', demoOne);
+explainer.addeventListener('click', showExplainer);
+hide.addEventListener('click', hideExplainer)
 
